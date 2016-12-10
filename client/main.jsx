@@ -1,6 +1,6 @@
 'use strict';
 
-import 'normalize.css'
+//import 'normalize.css'
 import 'styles/main.scss';
 
 import React from 'react';
