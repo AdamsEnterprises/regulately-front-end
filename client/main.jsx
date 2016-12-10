@@ -5,6 +5,23 @@ import 'styles/main.scss';
 import React from 'react';
 import { render } from 'react-dom';
 
-import Index from 'components/Index/Index';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import promiseMiddleware from 'redux-promise-middleware';
+import reducers from './reducers';
 
-render(<Index items={[1,2,3]} />, document.getElementById('js-main'));
+const store = createStore(
+  reducers,
+  applyMiddleware(
+    promiseMiddleware()
+  )
+)
+
+const App = () => (
+  <Provider store={store}>
+    <div>Hello World</div>
+  </Provider>
+)
+
+
+render(<App />, document.getElementById('mount'));
