@@ -1,0 +1,83 @@
+[
+  {
+    "title": "Medicare Program; Revised Civil Money Penalties, Assessments, Exclusions, and Related Appeals Procedures",
+    "num_comments": "4",
+    "abstract": "This action finalized confidentiality determinations for certain data elements in nine subparts under the Mandatory Greenhouse Gas Reporting Rule. In addition, EPA is finalizing amendments to subpart A to defer the reporting deadline of certain data elements in subparts FF and TT until 2013 and to defer the reporting deadline of certain data elements in subpart W until 2015. Lastly, the EPA is finalizing amendments to subpart I regarding the calculation and reporting of emissions from facilities that use best available monitoring methods. This action does not include final confidentiality determinations for data elements in the \"Inputs to Emission Equations\" data category.",
+    "sentiment": {
+      "positive": "2",
+      "negative": "1",
+      "neutral": "1",
+      "rating": "5"
+    },
+    "comment_start_date": "2005-08-04T00:00:00-04:00",
+    "comment_end_date": "2016-10-04T00:00:00-04:00",
+    "is_open": "false",
+    "topic": [
+      "Administrative Practices and Procedures",
+      "Environmental Protection",
+      "Greenhouse Gases",
+      "Incorporation by Reference",
+      "Reporting and Recordkeeping Requirements"
+    ],
+    "agency": "EPA",
+    "comments": [
+      {
+        "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
+        "sentiment": "positive"
+      },
+      {
+        "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
+        "sentiment": "negative"
+      },
+      {
+        "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
+        "sentiment": "positive"
+      },
+      {
+        "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
+        "sentiment": "positive"
+      }
+
+    ]
+  },
+  {
+    "title": "Guidance for Industry; Human Cells, Tissues, and Cellular and Tissue-Based Products from Adipose Tissue:  Regulatory Considerations",
+    "num_comments": "23",
+    "abstract": "This action finalized confidentiality determinations for certain data elements in nine subparts under the Mandatory Greenhouse Gas Reporting Rule. In addition, EPA is finalizing amendments to subpart A to defer the reporting deadline of certain data elements in subparts FF and TT until 2013 and to defer the reporting deadline of certain data elements in subpart W until 2015. Lastly, the EPA is finalizing amendments to subpart I regarding the calculation and reporting of emissions from facilities that use best available monitoring methods. This action does not include final confidentiality determinations for data elements in the \"Inputs to Emission Equations\" data category.",
+    "sentiment": {
+      "positive": "1",
+      "negative": "18",
+      "neutral": "4",
+      "rating": "37"
+    },
+    "comment_start_date": "2005-08-04T00:00:00-04:00",
+    "comment_end_date": "2016-10-04T00:00:00-04:00",
+    "is_open": "false",
+    "topic": [
+      "Administrative Practices and Procedures",
+      "Environmental Protection",
+      "Greenhouse Gases",
+      "Incorporation by Reference",
+      "Reporting and Recordkeeping Requirements"
+    ],
+    "agency": "EPA",
+    "comments": [
+      {
+        "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
+        "sentiment": "positive"
+      },
+      {
+        "text": "Comment Attachment Docket # EPA-HQ-OPP-2006-0239 \nTried multiple times to attach a document containing comments unsuccessfuly.  Mailed comments 8/17/2009",
+        "sentiment": "neutral"
+      },
+      {
+        "text": "Requests that the FDA amend 21 C.F.R. § 101.9{c)(6)(i) to include chicory root extract in the definition of dietary fiber because chicory root extract improves laxation and increases mineral absorption, both of which are physiological health benefits that FDA has identified as benefits of dietary fiber",
+        "sentiment": "negative"
+      },
+      {
+        "text": "Please do not allow the widespread use of the herbicide 2, 4-D in our country.  The poisoning and depletion of our farming soil in massive farming operations using toxic chemical fertilizers, pesticides and herbicides is a serious issue - much more urgent than global climate change!  Why are we ignoring this?",
+        "sentiment": "negative"
+      }
+    ]
+  }
+]
