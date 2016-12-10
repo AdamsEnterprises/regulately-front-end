@@ -3,8 +3,14 @@
 import 'styles/main.scss';
 
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM, { render } from 'react-dom';
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
-import Index from 'components/Index/Index';
+injectTapEventPlugin()
 
-render(<Index items={[1,2,3]} />, document.getElementById('js-main'));
+import Root from 'Root';
+
+render(
+  <Root />,
+  document.getElementById('js-main'),
+);

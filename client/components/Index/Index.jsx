@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AppBar from 'material-ui/AppBar'
 
 class IndexComponent extends Component {
   render() {
@@ -10,6 +11,8 @@ class IndexComponent extends Component {
 
     return (
       <section>
+        <AppBar title='Regulately' />
+
         <h2>react-webpack-boilerplate</h2>
         <ul ref="indexList" className="index-list">
           {this.props.items.map((item, index) => {
