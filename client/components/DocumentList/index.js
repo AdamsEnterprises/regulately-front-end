@@ -1,3 +1,4 @@
+import React, {Component, PropTypes} from 'react'
 import {List, ListItem} from 'material-ui/list'
 
 export default class DocumentsList extends  Component {
