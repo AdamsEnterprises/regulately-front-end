@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 
-import Index from 'components/Index/Index'
+import App from 'containers/App'
 import reducers from 'reducers';
 
 const store = createStore(
@@ -29,7 +29,7 @@ export default class Root extends Component {
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
           <Provider store={store}>
-            <Index items={[1,2,3]} />
+            <App />
           </Provider>
         </MuiThemeProvider>
     )
