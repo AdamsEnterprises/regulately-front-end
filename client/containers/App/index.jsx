@@ -55,9 +55,16 @@ class App extends Component {
       })
   }
 
-  handleToggleOpen(value) {
+    handleToggleOpen() {
       return this.setState({
-          isOpen: isOpen,
+          isOpen: !this.state.isOpen,
+      }, () => {
+        const category = this.state.category.join(',')
+
+        return this.props.readAll({
+          category,
+          isOpen: this.state.isOpen,
+        })
       })
   }
 
@@ -95,6 +102,7 @@ class App extends Component {
         <AppDrawer
             onToggleCategory={::this.handleToggleCategory}
             onToggleOpen={::this.handleToggleOpen}
+            isOpen={this.state.isOpen}
             className={drawerStyle} />
 
           <Dialog />
