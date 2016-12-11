@@ -3,7 +3,7 @@ import {List, ListItem} from 'material-ui/List'
 import IconMenu from 'material-ui/IconMenu'
 import MenuItem from 'material-ui/MenuItem'
 import IconButton from 'material-ui/IconButton'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import ToggleStar from 'material-ui/svg-icons/toggle/star'
 import {grey400} from 'material-ui/styles/colors'
 import Divider from 'material-ui/Divider'
 
@@ -20,18 +20,10 @@ export default class DocumentsList extends  Component {
     const iconButtonElement = (
       <IconButton
         touch={true}
-        tooltip="more"
-        tooltipPosition="bottom-left">
-        <MoreVertIcon color={grey400} />
+        tooltip="Favorite"
+        tooltipPosition="bottom-center">
+        <ToggleStar color={grey400} />
       </IconButton>
-    );
-
-    const rightIconMenu = (
-      <IconMenu iconButtonElement={iconButtonElement}>
-        <MenuItem>Reply</MenuItem>
-        <MenuItem>Forward</MenuItem>
-        <MenuItem>Delete</MenuItem>
-      </IconMenu>
     );
 
     const elements = this.props.items.map((item, index)=> (
@@ -39,7 +31,7 @@ export default class DocumentsList extends  Component {
         <ListItem
           key={item.title}
           primaryText={item.title}
-          rightIconButton={rightIconMenu}
+          rightIconButton={iconButtonElement}
           secondaryText={item.subtitle}
           secondaryTextLines={2} />
 

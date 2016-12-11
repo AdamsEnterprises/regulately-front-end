@@ -5,6 +5,11 @@ import ScrollArea from 'react-scrollbar'
 import Checkbox from 'material-ui/Checkbox'
 import Divider from 'material-ui/Divider'
 import Subheader from 'material-ui/Subheader'
+import DropDownMenu from 'material-ui/DropDownMenu'
+import MenuItem from 'material-ui/MenuItem'
+import Toggle from 'material-ui/Toggle'
+
+import 'styles/app-drawer.scss'
 
 const AppDrawer = ({
   className,
@@ -21,13 +26,63 @@ const AppDrawer = ({
 
       <ListItem
         leftCheckbox={<Checkbox />}
-        primaryText='Aerospace' />
+        primaryText='Aerospace'
+        secondaryText='201' />
 
       <ListItem
         leftCheckbox={<Checkbox />}
-        primaryText='Technology' />
+        primaryText='Technology'
+        secondaryText='21' />
 
-      <ListItem primaryText='Clear Filters'/>
+      <ListItem primaryText='Clear All'/>
+    </List>
+
+    <Divider />
+
+    <List>
+      <Subheader>
+        Document Type
+      </Subheader>
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Notice'
+        secondaryText='' />
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Proposed Rule'
+        secondaryText='' />
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Rule'
+        secondaryText='' />
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Supporting Material'
+        secondaryText='29' />
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Other'
+        secondaryText='201' />
+
+      <ListItem
+        leftCheckbox={<Checkbox />}
+        primaryText='Public Submission'
+        secondaryText='' />
+
+      <ListItem primaryText='Clear All'/>
+    </List>
+
+    <Divider />
+
+    <List>
+      <ListItem
+        rightToggle={<Toggle />}
+        primaryText='Only Open Documents' />
     </List>
 
     <Divider />
