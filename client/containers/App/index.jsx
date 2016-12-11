@@ -5,7 +5,16 @@ import DocumentsIndex from 'containers/DocumentsIndex'
 import AppDrawer from 'components/AppDrawer'
 import Dialog from 'components/Dialog'
 
+import AppSearch from 'components/AppSearch'
+
+import {readAll} from 'reducers/documents'
+
 import 'styles/app.scss'
+
+const titleStyles = {
+  width: '256px',
+  flex: 'none',
+}
 
 export default class App extends Component {
   handleDocumentSelect(id) {
@@ -18,7 +27,10 @@ export default class App extends Component {
       <div className='app'>
         <AppBar
           className='app__appbar'
-          title='Regulately' />
+          children={<AppSearch handleChange={readAll}/>}
+          title='Regulately'
+          titleStyle={titleStyles}
+          />
 
         <div className='app__body'>
           <AppDrawer
