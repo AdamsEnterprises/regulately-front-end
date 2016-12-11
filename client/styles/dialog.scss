@@ -7,6 +7,9 @@
   align-items: center;
   .close {
     cursor: pointer;
+    &:hover {
+      color: #388E3C;
+    }
   }
 }
 .dialog-title {
@@ -16,6 +19,9 @@
     color: #333;
     font-weight: 200;
     text-decoration: none;
+    &:hover {
+      color: #388E3C;
+    }
   }
   i {
     padding-left: 16px;

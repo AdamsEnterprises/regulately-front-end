@@ -8,6 +8,7 @@
       "negative": 0,
       "rating": "NEUTRAL"
     },
+    "engagementRate": 1,
     "title": "Recently Posted DHS Rules and Notices.",
     "agency": "Department of Homeland Security",
     "rin": "Not Assigned",
@@ -29,6 +30,7 @@
       "negative": 0,
       "rating": "NEUTRAL"
     },
+    "engagementRate": -1,
     "title": "Proposed priority -- Equity Assistance Centers (Formerly Desegregation Assistance Centers (DAC))",
     "agency": "Department of Education",
     "engagementRate": 0,
