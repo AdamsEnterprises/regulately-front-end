@@ -3,6 +3,7 @@ import AppBar from 'material-ui/AppBar'
 
 import DocumentsIndex from 'containers/DocumentsIndex'
 import AppDrawer from 'components/AppDrawer'
+import Dialog from 'components/Dialog'
 
 import 'styles/app.scss'
 
@@ -23,7 +24,7 @@ export default class App extends Component {
           <AppDrawer
             className='app__drawer'
             isOpen />
-
+          <Dialog />
           <div className='app__content'>
             <DocumentsIndex
               onDocumentSelect={::this.handleDocumentSelect}/>

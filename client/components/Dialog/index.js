@@ -1,22 +1,32 @@
 import React, {component} from 'react';
 import Dialog from 'material-ui/Dialog';
+import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import {connect} from 'react-redux';
 
-const Modal = ({regulation}) => (
+import styles from '../../styles/dialog.scss';
+
+const dialogStyles = {
+  height: '800px',
+  maxWidth: 'none',
+  position: relative,
+}
+
+const Modal = ({regulation, app}) => (
   <Dialog
-    title="Dialog"
-    open={true}
-    modal={true}>
-    <div style={{overflow:"show"}}>
+    open={app.modal.open}
+    modal={true}
+    contentStyle={dialogStyles}>
+    <div className='dialog-title-bar'>
       <div>{regulation.title}</div>
-      <div>{regulation.abstract}</div>
     </div>
+      <div>{regulation.abstract}</div>
   </Dialog>
 )
-const mapStateToProps = ({regulation}) => ({
-  regulation
+const mapStateToProps = ({regulation, app}) => ({
+  regulation,
+  app,
 })
 
 export default connect(mapStateToProps)(Modal);
