@@ -10,7 +10,7 @@ import styles from '../../styles/dialog.scss';
 const dialogStyles = {
   height: '800px',
   maxWidth: 'none',
-  position: relative,
+  position: 'relative',
 }
 
 const Modal = ({regulation, app}) => (
