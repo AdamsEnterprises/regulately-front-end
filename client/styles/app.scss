@@ -1,2 +1,14 @@
 .app {
+  &__body {
+    display: flex;
+  }
+
+  &__content {
+    flex: 1;
+    padding: 0 16px;
+  }
+
+  &__drawer {
+    flex: 0 0 256px;
+  }
 }
