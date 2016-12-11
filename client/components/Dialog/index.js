@@ -3,6 +3,8 @@ import Dialog from 'material-ui/Dialog';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardTitle, CardText, CardMedia, CardHeader} from 'material-ui/Card'
+import ScrollArea from 'react-scrollbar'
 import iconDict from 'utils/agencyIcons';
 import {connect} from 'react-redux';
 import {toggleDialog} from 'actions';
@@ -60,6 +62,7 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
     modal={false}
     open={app.modal.open}
     contentStyle={dialogStyles}>
+    <CardTitle title='SomeTitle' subtitle='some subtitle' />
     <div className='dialog-title-bar'>
       <div className='dialog-title'>
         <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`} target="_blank">
@@ -67,7 +70,8 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
           <i className='material-icons'>link</i>
         </a>
       </div>
-      <i className='close material-icons'
+      <i
+          className='close material-icons'
         onClick={toggleDialog}>close</i>
     </div>
     <div className='dialog-content'>
@@ -116,7 +120,7 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
           }
         })
       }
-    </div>
+      </div>
   </Dialog>
 )
 
