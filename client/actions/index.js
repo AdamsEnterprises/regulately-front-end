@@ -1,7 +1,5 @@
 import documents from 'mock/documents.json';
 
-<<<<<<< HEAD
-
 //  return fetch(`${uri + id}`, {method: 'POST'})
 
 const uri = process.env.NODE_ENV !== 'production'
