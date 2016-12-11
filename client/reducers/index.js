@@ -1,8 +1,10 @@
 import {combineReducers} from 'redux';
 
-import documents from '../mock/documents.json';
+import documents from 'reducers/documents'
 
-const regulation = (state=documents[0], action) => {
+import mock from '../mock/documents.json';
+
+const regulation = (state=mock[0], action) => {
   switch (action.type) {
     case 'GET_REGULATION':
       return action.payload;
