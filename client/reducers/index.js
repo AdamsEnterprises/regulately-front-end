@@ -4,9 +4,12 @@ import documents from 'reducers/documents'
 
 import mock from '../mock/documents.json';
 
+
+
 const regulation = (state=mock[0], action) => {
   switch (action.type) {
     case 'GET_REGULATION':
+      console.log('get regulation called', action.payload);
       return action.payload;
     default:
       return state;
