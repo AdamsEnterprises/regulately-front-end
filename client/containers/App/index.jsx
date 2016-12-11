@@ -10,6 +10,14 @@ import AppDrawer from 'components/AppDrawer'
 import Dialog from 'components/Dialog'
 
 import * as app from 'reducers/app'
+import * as documents from 'reducers/documents'
+
+import AppSearch from 'components/AppSearch'
+
+const titleStyles = {
+  width: '256px',
+  flex: 'none',
+}
 
 import 'styles/app.scss'
 
@@ -41,7 +49,9 @@ class App extends Component {
         <AppBar
           className='app__appbar'
           iconElementLeft={<IconButton onClick={::this.handleToggleDrawer}><NavigationMenu /></IconButton>}
-          title='Regulately' />
+          title='Regulately'
+          children={<AppSearch handleChange={documents.readAll}/>}
+          titleStyle={titleStyles} />
 
         <div className='app__body'>
           <AppDrawer className={drawerStyle} />

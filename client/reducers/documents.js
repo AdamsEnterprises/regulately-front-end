@@ -1,5 +1,6 @@
 import URI from 'urijs'
 import Immutable from 'seamless-immutable'
+import documents from 'mock/documents.json'
 
 export const READ = 'documents/READ'
 export const READ_ALL = 'documents/READ_ALL'
@@ -46,7 +47,7 @@ export const readAll = (query = {}) => {
 }
 
 const INITIAL_STATE = Immutable({
-  data: [],
+  data: documents,
   status: 'INITIAL',
 })
 

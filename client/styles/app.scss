@@ -10,6 +10,8 @@ $cubic-bezier: cubic-bezier(.1,.68,.21,.89);
     top: 0;
     left: 0;
     width: 100%;
+    display: flex;
+    align-items: center;
   }
 
   &__body {

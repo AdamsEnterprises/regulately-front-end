@@ -39,7 +39,7 @@ const DialogComment = ({comment}) => {
     <div className={`dialog-comment-item dialog-comment-${comment.sentiment}`}>
       <div className='dialog-comment-info'>
         <span>{comment.submitter_name}</span>
-        <span>({formatDate(comment.date)})</span>
+        <span>{formatDate(comment.date)}</span>
       </div>
       <div className='dialog-comment-content'>
         {comment.text}
@@ -56,7 +56,7 @@ const Modal = ({regulation, app, toggleDialog}) => (
     contentStyle={dialogStyles}>
     <div className='dialog-title-bar'>
       <div className='dialog-title'>
-        <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`}>
+        <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`} target="_blank">
           {regulation.title}
           <i className='material-icons'>link</i>
         </a>
