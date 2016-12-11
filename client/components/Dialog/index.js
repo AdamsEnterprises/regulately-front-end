@@ -42,7 +42,7 @@ const DialogComment = ({comment}) => {
           <p className='dialog-comment-title'>{comment.submitterName}</p>
           <p className='dialog-comment-subtitle'>{comment.title}</p>
         </div>
-        <span>{comment.postedDate}</span>
+        <span>{comment.postedDate ? formatDate(comment.postedDate) : ''}</span>
       </div>
       <div className='dialog-comment-content'>
         {comment.commentText}
@@ -81,13 +81,21 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
           <span className='dialog-info-label'>Status: </span>
           <span className='dialog-info-value'>{regulation.is_open ? 'Open' : 'Closed'}</span>
         </div>
+        {regulation.commentStartDate
+        ? (<div className='dialog-info'>
+            <span className='dialog-info-label'>Posted: </span>
+            <span className='dialog-info-value'>{regulation.commentStartDate ? regulation.commentStartDate : ''}</span>
+          </div>)
+        : ''}
+        {regulation.commentEndDate
+        ? (<div className='dialog-info'>
+            <span className='dialog-info-label'>Comments closed: </span>
+            <span className='dialog-info-value'>{regulation.commentEndDate ? regulation.commentEndDate : ''}</span>
+          </div>)
+        : ''}
         <div className='dialog-info'>
-          <span className='dialog-info-label'>Posted: </span>
-          <span className='dialog-info-value'>{regulation.commentStartDate ? regulation.commentStartDate : ''}</span>
-        </div>
-        <div className='dialog-info'>
-          <span className='dialog-info-label'>Comments closed: </span>
-          <span className='dialog-info-value'>{regulation.commentEndDate ? regulation.commentEndDate : ''}</span>
+          <span className='dialog-info-label'>Open for comment: </span>
+          <span className='dialog-info-value'>{regulation.openForComment ? 'Yes' : 'No'}</span>
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Agency: </span>
@@ -102,6 +110,15 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
         <div className='dialog-abstract'>
           <h3 className='dialog-info-label'>Summary</h3>
           <div dangerouslySetInnerHTML={{__html: regulation.docketAbstract}}></div>
+          <div className='dialog-button-container'>
+            <RaisedButton
+              primary={true}
+              label='Comment'
+              target='_blank'
+              fullWidth={true}
+              disabled={!regulation.openForComment}
+              href={`https://www.regulations.gov/comment?D=${regulation.docketId}`} />
+          </div>
         </div>
         {
           comments && regulation.sentiment

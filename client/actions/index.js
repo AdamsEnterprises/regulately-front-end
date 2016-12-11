@@ -1,13 +1,17 @@
 import documents from 'mock/documents.json';
 
+
+//  return fetch(`${uri + id}`, {method: 'POST'})
+
+
 //const uri = 'http://23.99.1.48/dockets'
 const uri = 'http://localhost:5000/dockets/'
 
 const getRegulationAsync = (id) => new Promise((resolve, reject) => {
   console.log(id)
   return fetch(`${uri + id}`)
-    .then(response => response.json()
-         .then(json => resolve(json)))
+    .then(response => response.json())
+         .then(json => resolve(json))
     .catch(err => console.log('error fetching resource, ', reject(err)));
 });
 
