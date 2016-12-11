@@ -4,6 +4,27 @@ $red-500: #F44336;
 $grey-500: #9E9E9E;
 
 .documents-item {
+  &__engagement {
+    font-size: 12px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -15px;
+
+    &--Flat {
+      @extend .documents-item__engagement;
+      color: $grey-500;
+    }
+    &--Up {
+      @extend .documents-item__engagement;
+      color: $green-500;
+    }
+
+    &--Down {
+      @extend .documents-item__engagement;
+      color: $red-500;
+    }
+  }
+
   &__time {
     font-size: 12px;
     margin-left: 10px;
