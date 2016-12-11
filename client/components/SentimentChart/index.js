@@ -11,13 +11,15 @@ export default class SentimentChart extends Component {
   state = {
     data: [
       ['Task', 'Hours per Day'],
+      ['Negative', 5],
       ['Positive', 11],
-      ['Negative', 5]
+      ['Neutral', 2],
     ],
     options: {
       title: '',
       pieHole: 0.4,
       legend: 'bottom',
+      colors: ['#D32F2F', '#00C853', '#0091EA']
     },
   }
 
@@ -28,8 +30,8 @@ export default class SentimentChart extends Component {
         data={this.state.data}
         options={this.state.options}
         graph_id='SentimentChart'
-        width='256px'
-        height='256px' />
+        width='360px'
+        height='360px' />
     )
   }
 }

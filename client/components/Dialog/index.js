@@ -5,6 +5,8 @@ import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import iconDict from 'utils/agencyIcons';
 import {connect} from 'react-redux';
+import {toggleDialog} from 'actions';
+import {bindActionCreators} from 'redux';
 
 import SentimentChart from 'components/SentimentChart';
 
@@ -34,11 +36,10 @@ const DialogComment = ({comment}) => {
       break;
   }
   return (
-    <div className={`dialog-comment-item dialog-comment-${tone}`}>
+    <div className={`dialog-comment-item dialog-comment-${comment.sentiment}`}>
       <div className='dialog-comment-info'>
-        <span>{comment.title}</span>
         <span>{comment.submitter_name}</span>
-        <span>{formatDate(comment.date)}</span>
+        <span>({formatDate(comment.date)})</span>
       </div>
       <div className='dialog-comment-content'>
         {comment.text}
@@ -47,19 +48,21 @@ const DialogComment = ({comment}) => {
   )
 }
 
-const Modal = ({regulation, app}) => (
+const Modal = ({regulation, app, toggleDialog}) => (
   <Dialog
+    autoScrollBodyContent={true}
+    modal={false}
     open={app.modal.open}
-    modal={true}
     contentStyle={dialogStyles}>
     <div className='dialog-title-bar'>
-      <i className='material-icons'>{iconDict[regulation.agency[0]]}</i>
       <div className='dialog-title'>
         <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`}>
           {regulation.title}
           <i className='material-icons'>link</i>
         </a>
       </div>
+      <i className='close material-icons'
+        onClick={toggleDialog}>close</i>
     </div>
     <div className='dialog-content'>
       <div className='dialog-info-container'>
@@ -84,9 +87,9 @@ const Modal = ({regulation, app}) => (
           <span className='dialog-info-value'>{regulation.num_comments}</span>
         </div>
       </div>
-      <h3 className='dialog-info-label'>Summary</h3>
       <div className='dialog-main'>
         <div className='dialog-abstract'>
+          <h3 className='dialog-info-label'>Summary</h3>
           {regulation.abstract}
         </div>
         <div className='dialog-chart-main'>
@@ -94,6 +97,7 @@ const Modal = ({regulation, app}) => (
         </div>
       </div>
     </div>
+    <h3 className='dialog-info-label'>Comments</h3>
     <div className='dialog-comments'>
       {
         regulation.comments.map(comment => {
@@ -109,4 +113,11 @@ const mapStateToProps = ({regulation, app}) => ({
   app,
 })
 
-export default connect(mapStateToProps)(Modal);
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  toggleDialog,
+}, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Modal);

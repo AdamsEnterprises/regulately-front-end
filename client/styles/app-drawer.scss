@@ -9,3 +9,13 @@
     padding-right: 16px;
   }
 }
+
+.drawer-category-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  i {
+    padding-left: 16px;
+  }
+}
