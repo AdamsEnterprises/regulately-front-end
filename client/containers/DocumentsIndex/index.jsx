@@ -6,6 +6,7 @@ import Subheader from 'material-ui/Subheader'
 import CircularProgress from 'material-ui/CircularProgress'
 import ScrollArea from 'react-scrollbar'
 
+import {toggleDialog} from 'actions'
 import DocumentsList from 'components/DocumentsList'
 import SentimentChart from 'components/SentimentChart'
 
@@ -59,6 +60,7 @@ const mapStateToProps = ({documents}) => ({documents})
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {
+    onClick: toggleDialog,
     read: documents.read,
     readAll: documents.readAll,
   },
