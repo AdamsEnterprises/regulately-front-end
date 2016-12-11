@@ -5,8 +5,7 @@ import documents from 'mock/documents.json'
 export const READ = 'documents/READ'
 export const READ_ALL = 'documents/READ_ALL'
 
-const API_KEY = 'Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk'
-const API_URI = 'https://api.data.gov:443/regulations/v3/documents.json'
+const API_URI = 'http://localhost:5000/dockets?'
 
 export const readAll = (query = {}) => {
   let uri = new URI(API_URI)
@@ -14,10 +13,6 @@ export const readAll = (query = {}) => {
       ...query,
     })
     .toString()
-
-
-    uri = "localhost:5000/dockets/USCG-2000-7080";
-    //uri = "https://api.data.gov:443/regulations/v3/documents.json?api_key=Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk"
 
   const promise = new Promise(async (resolve, reject) => {
     try {

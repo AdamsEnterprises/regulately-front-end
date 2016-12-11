@@ -90,7 +90,7 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Total comments: </span>
-          <span className='dialog-info-value'>{comments.length}</span>
+          <span className='dialog-info-value'>{comments.numberOfComments}</span>
         </div>
       </div>
       <div className='dialog-main'>
@@ -98,9 +98,13 @@ const Modal = ({regulation, app, toggleDialog, comments}) => (
           <h3 className='dialog-info-label'>Summary</h3>
           <div dangerouslySetInnerHTML={{__html: regulation.docketAbstract}}></div>
         </div>
-        <div className='dialog-chart-main'>
-          <SentimentChart />
-        </div>
+        {
+          regulation.numberOfComments > 0
+            ? <div className='dialog-chart-main'>
+                <SentimentChart positive={comment.sentiment.positive} negative={comment.sentiment.negative} neutral={comment.numberOfComments - comment.sentiment.positive - comment.sentiment.negative}/>
+              </div>
+            : ''
+        }
       </div>
     </div>
     <h3 className='dialog-info-label'>Comments</h3>

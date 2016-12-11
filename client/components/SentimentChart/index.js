@@ -11,9 +11,9 @@ export default class SentimentChart extends Component {
   state = {
     data: [
       ['Task', 'Hours per Day'],
-      ['Negative', 5],
-      ['Positive', 11],
-      ['Neutral', 2],
+      ['Negative', this.props.negative],
+      ['Positive', this.props.positive],
+      ['Neutral', this.props.neutral],
     ],
     options: {
       title: '',

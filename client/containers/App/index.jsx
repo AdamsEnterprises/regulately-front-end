@@ -50,7 +50,6 @@ class App extends Component {
           className='app__appbar'
           iconElementLeft={<IconButton onClick={::this.handleToggleDrawer}><NavigationMenu /></IconButton>}
           title='Regulately'
-          children={<AppSearch handleChange={documents.readAll}/>}
           titleStyle={titleStyles} />
 
         <div className='app__body'>
