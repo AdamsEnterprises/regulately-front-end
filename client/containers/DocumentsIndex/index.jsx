@@ -23,18 +23,22 @@ class DocumentsIndex extends Component {
     let cardStyle
     let loadingStyle
 
+    console.log(this.props.status)
+
     switch (true) {
-      case `${documents.READ_ALL}_FULFILLED`:
+      case (this.props.status === `${documents.READ_ALL}_FULFILLED`):
         cardStyle = 'documents-index__card--visible'
         loadingStyle = 'documents-index__loading--hidden'
         break
 
-      case `${documents.READ_ALL}_PENDING`:
+      case (this.props.status === `${documents.READ_ALL}_PENDING`):
         cardStyle = 'documents-index__card--hidden'
         loadingStyle = 'documents-index__loading--visible'
         break
 
       default:
+        cardStyle = 'documents-index__card--hidden'
+        loadingStyle = 'documents-index__loading--hidden'
         break
     }
 
@@ -46,17 +50,22 @@ class DocumentsIndex extends Component {
           </Subheader>
 
           <Card className={cardStyle}>
-            <DocumentsList onClick={this.props.onClick} items={this.props.documents.data} />
+            <DocumentsList onClick={this.props.onClick} items={this.props.items} />
           </Card>
 
-          <CircularProgress className={loadingStyle} />
+          <div className={loadingStyle}>
+            <CircularProgress />
+          </div>
         </div>
       </ScrollArea>
     )
   }
 }
 
-const mapStateToProps = ({documents}) => ({documents})
+const mapStateToProps = ({documents}) => ({
+    items: documents.data,
+    status: documents.status,
+})
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {

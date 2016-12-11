@@ -3,6 +3,8 @@ import Dialog from 'material-ui/Dialog';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardTitle, CardText, CardMedia, CardHeader} from 'material-ui/Card'
+import ScrollArea from 'react-scrollbar'
 import iconDict from 'utils/agencyIcons';
 import {connect} from 'react-redux';
 import {toggleDialog} from 'actions';
@@ -54,6 +56,7 @@ const Modal = ({regulation, app, toggleDialog}) => (
     modal={false}
     open={app.modal.open}
     contentStyle={dialogStyles}>
+    <CardTitle title='SomeTitle' subtitle='some subtitle' />
     <div className='dialog-title-bar'>
       <div className='dialog-title'>
         <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`} target="_blank">
@@ -61,7 +64,8 @@ const Modal = ({regulation, app, toggleDialog}) => (
           <i className='material-icons'>link</i>
         </a>
       </div>
-      <i className='close material-icons'
+      <i
+          className='close material-icons'
         onClick={toggleDialog}>close</i>
     </div>
     <div className='dialog-content'>
@@ -89,7 +93,9 @@ const Modal = ({regulation, app, toggleDialog}) => (
       </div>
       <div className='dialog-main'>
         <div className='dialog-abstract'>
-          <h3 className='dialog-info-label'>Summary</h3>
+        <h3 className='dialog-info-label'>Summary</h3>
+
+        <RaisedButton label='ADD COMMENT' />
           {regulation.abstract}
         </div>
         <div className='dialog-chart-main'>
@@ -104,7 +110,7 @@ const Modal = ({regulation, app, toggleDialog}) => (
           return <DialogComment comment={comment} />
         })
       }
-    </div>
+      </div>
   </Dialog>
 )
 
