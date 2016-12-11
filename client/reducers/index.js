@@ -1,33 +1,32 @@
 import {combineReducers} from 'redux';
-
+import mock from 'mock/documents.json'
 import documents from 'reducers/documents'
+import app from 'reducers/app'
 
-import mock from '../mock/documents.json';
 
-const regulation = (state=mock[0], action) => {
+const regulation = (state={}, action) => {
   switch (action.type) {
-    case 'GET_REGULATION':
+    case 'GET_REGULATION_FULFILLED':
+      console.log(action)
       return action.payload;
     default:
       return state;
   }
 };
 
-const app = (state={modal: {open: true}}, action) => {
+const comments = (state=[], action) => {
   switch (action.type) {
-    case 'TOGGLE_DIALOG':
-      return Object.assign({}, state, {
-        modal: {
-          open: !state.modal.open,
-        }
-      })
+    case 'GET_COMMENTS_FULFILLED':
+    console.log('get comments called', action.payload);
+      return action.payload
     default:
       return state;
   }
-};
+}
 
 export default combineReducers({
-  regulation,
-  documents,
   app,
+  documents,
+  regulation,
+  comments,
 });

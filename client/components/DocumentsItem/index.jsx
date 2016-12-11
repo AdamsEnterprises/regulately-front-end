@@ -11,11 +11,14 @@ const associateHandler = (id, handler)  => () => handler(id)
 const DocumentsItem = ({
   item,
   isLast,
-  onClick,
+  getRegulation,
+  toggleDialog,
+  getComments,
   onStar,
 }) => {
-  const handleClick = associateHandler(item.id, onClick)
-  const handleStar = associateHandler(item.id, onStar)
+  const loadComments = associateHandler(item.docketId, getComments)
+  const loadDocument = associateHandler(item.docketId, getRegulation)
+  const handleStar = associateHandler(item.docketId, onStar)
 
   const now = moment()
   const diff = now.diff(new Date(), 'days')
@@ -23,11 +26,11 @@ const DocumentsItem = ({
   let timeStyle
   let timeStylePrefix = "documents-item__time--"
   let timeStyleColor = "grey"
-  const commentEndDateObj = moment(item.comment_end_date)
+  const commentEndDateObj = moment(item.commentEndDate)
   const timeDiff = moment.duration(commentEndDateObj.diff(moment(new Date())))
   let timeDiffHours = timeDiff.asHours()
   let timeText
-  if (timeDiffHours < 0) {
+  if (timeDiffHours <= 0) {
     timeText = 'Comments Closed'
   } else if (timeDiffHours < 24) {
     timeText = parseInt(timeDiffHours) + " hours"
@@ -63,15 +66,25 @@ const engagementRateStyle = engagementRatePrefix + engagementRateValue
       <ToggleStar color={grey400} />
     </IconButton>
   )
+  const ItemSubTitle = ({item}) => (
+    <div className='documents-item-subtitle'>
+      <span>{item.category}</span>
+      <span className='documents-item-NOComments'>{item.numberOfComments === 1 ? `${item.numberOfComments} comment` : `${item.numberOfComments} comments`}</span>
+    </div>
+  )
 
   return (
     <div className='documents-item'>
       <ListItem
-        onClick={handleClick}
+        onClick={() => {
+          loadDocument()
+          loadComments()
+          toggleDialog()
+        }}
         key={item.title}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
-        secondaryText={item.subtitle}
+        secondaryText={item.category}
         secondaryTextLines={2} />
         <div className={engagementRateStyle}>
           Engagement Rate {engagementRateValue}

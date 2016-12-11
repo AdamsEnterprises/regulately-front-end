@@ -6,7 +6,12 @@
   }
 
   &__inner {
+    width: 320px;
     padding-right: 16px;
+  }
+
+  &__icon {
+    color: #888;
   }
 }
 
