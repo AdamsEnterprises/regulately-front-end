@@ -54,7 +54,7 @@ class DocumentsIndex extends Component {
                 getComments={this.props.getComments}
                 toggleDialog={this.props.toggleDialog}
                 getRegulation={this.props.getRegulation}
-                items={this.props.documents.data} />
+                items={this.props.items} />
           </Card>
 
           <div className={loadingStyle}>
