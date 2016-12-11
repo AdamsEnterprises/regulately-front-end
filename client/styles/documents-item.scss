@@ -4,11 +4,12 @@ $red-500: #F44336;
 $grey-500: #9E9E9E;
 
 .documents-item {
+  border-bottom: 1px solid #ccc;
   &__engagement {
     font-size: 12px;
     float: right;
     margin-right: 20px;
-    margin-top: -15px;
+    margin-top: -32px;
 
     &--Flat {
       @extend .documents-item__engagement;

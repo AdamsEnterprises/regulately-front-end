@@ -5,8 +5,9 @@ import documents from 'mock/documents.json'
 export const READ = 'documents/READ'
 export const READ_ALL = 'documents/READ_ALL'
 
-const API_URI = 'http://23.99.1.48/dockets?'
-//const API_URI = 'http://localhost:5000/dockets?'
+const API_URI = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:5000/dockets?'
+  : 'http://23.99.1.48/dockets?'
 
 export const readAll = (query = {}) => {
   let uri = new URI(API_URI)

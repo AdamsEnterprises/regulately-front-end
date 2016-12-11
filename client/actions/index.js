@@ -1,6 +1,10 @@
 import documents from 'mock/documents.json';
 
-const uri = 'http://23.99.1.48/dockets/'
+//  return fetch(`${uri + id}`, {method: 'POST'})
+
+const uri = process.env.NODE_ENV !== 'production'
+  ? 'http://localhost:5000/dockets/'
+  : 'http://23.99.1.48/dockets/';
 const commentsUri = 'http://23.99.1.48/comments/'
 
 const getRegulationAsync = (id) => new Promise((resolve, reject) => {
