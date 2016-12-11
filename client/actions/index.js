@@ -1,6 +1,7 @@
 import documents from 'mock/documents.json';
 
-const uri = 'http://23.99.1.48/dockets'
+//const uri = 'http://23.99.1.48/dockets'
+const uri = 'http://localhost:5000/dockets/'
 
 const getRegulationAsync = (id) => new Promise((resolve, reject) => {
   console.log(id)
