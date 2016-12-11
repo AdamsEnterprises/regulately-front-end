@@ -5,6 +5,7 @@ import Card from 'material-ui/Card'
 import Subheader from 'material-ui/Subheader'
 import ScrollArea from 'react-scrollbar'
 
+import {toggleDialog} from 'actions'
 import DocumentsList from 'components/DocumentsList'
 import SentimentChart from 'components/SentimentChart'
 
@@ -43,6 +44,7 @@ const mapStateToProps = ({documents}) => ({documents})
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {
+    onClick: toggleDialog,
   },
   dispatch,
 )

@@ -60,6 +60,7 @@ const DocumentsItem = ({
   return (
     <div className='documents-item'>
       <ListItem
+        onClick={()=> handleClick}
         key={item.title}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
