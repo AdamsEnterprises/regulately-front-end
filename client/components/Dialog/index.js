@@ -9,6 +9,7 @@ import iconDict from 'utils/agencyIcons';
 import {connect} from 'react-redux';
 import {toggleDialog} from 'actions';
 import {bindActionCreators} from 'redux';
+import moment from 'moment'
 
 import SentimentChart from 'components/SentimentChart';
 
@@ -35,6 +36,11 @@ const DialogComment = ({comment}) => {
   } else {
     tone = 'none';
   }
+
+  const formattedDate = comment.postedDate
+    ? moment(comment.postedDate).format('ll')
+    : ''
+
   return (
     <div className={`dialog-comment-item dialog-comment-${tone}`}>
       <div className='dialog-comment-info'>
@@ -42,7 +48,7 @@ const DialogComment = ({comment}) => {
           <p className='dialog-comment-title'>{comment.submitterName}</p>
           <p className='dialog-comment-subtitle'>{comment.title}</p>
         </div>
-        <span>{comment.postedDate}</span>
+        <span>{formattedDate}</span>
       </div>
       <div className='dialog-comment-content'>
         {comment.commentText}
