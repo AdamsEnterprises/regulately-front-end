@@ -39,7 +39,7 @@ const DialogComment = ({comment}) => {
     <div className={`dialog-comment-item dialog-comment-${comment.sentiment}`}>
       <div className='dialog-comment-info'>
         <span>{comment.submitter_name}</span>
-        <span>({formatDate(comment.date)})</span>
+        <span>{formatDate(comment.date)}</span>
       </div>
       <div className='dialog-comment-content'>
         {comment.text}

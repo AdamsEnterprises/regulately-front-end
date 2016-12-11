@@ -46,7 +46,7 @@ class DocumentsIndex extends Component {
           </Subheader>
 
           <Card className={cardStyle}>
-            <DocumentsList items={this.props.documents.data} />
+            <DocumentsList onClick={this.props.onClick} items={this.props.documents.data} />
           </Card>
 
           <CircularProgress className={loadingStyle} />

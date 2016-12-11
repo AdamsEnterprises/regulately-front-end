@@ -13,12 +13,13 @@ export default class DocumentsList extends  Component {
   }
 
   render() {
-    console.log(this.props.items)
+    console.log(this.props)
     const elements = this.props.items.map((item, index)=> {
       const isLast = this.props.length - 1 === index
 
       return (
         <DocumentsItem
+          onClick={this.props.onClick}
           item={item}
           isLast={isLast} />
       )
