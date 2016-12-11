@@ -4,6 +4,7 @@ const docUri = 'http://localhost:5000/dockets/'
 const commentUri = 'http://localhost:5000/dockets/'
 
 const getRegulationAsync = (id) => new Promise((resolve, reject) => {
+  console.log(id)
   return fetch(`${docUri + id}`)
     .then(response => response.json()
          .then(json => resolve(json)))

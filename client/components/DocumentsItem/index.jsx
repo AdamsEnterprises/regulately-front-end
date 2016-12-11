@@ -16,9 +16,9 @@ const DocumentsItem = ({
   getComments,
   onStar,
 }) => {
-  const loadComments = associateHandler(item.id, getComments)
-  const loadDocument = associateHandler(item.id, getRegulation)
-  const handleStar = associateHandler(item.id, onStar)
+  const loadComments = associateHandler(item.docketId, getComments)
+  const loadDocument = associateHandler(item.docketId, getRegulation)
+  const handleStar = associateHandler(item.docketId, onStar)
 
   const now = moment()
   const diff = now.diff(new Date(), 'days')
@@ -26,7 +26,7 @@ const DocumentsItem = ({
   let timeStyle
   let timeStylePrefix = "documents-item__time--"
   let timeStyleColor = "grey"
-  const commentEndDateObj = moment(item.comment_end_date)
+  const commentEndDateObj = moment(item.commentEndDate)
   const timeDiff = moment.duration(commentEndDateObj.diff(moment(new Date())))
   let timeDiffHours = timeDiff.asHours()
   let timeText

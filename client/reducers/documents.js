@@ -16,14 +16,9 @@ export const readAll = (query = {}) => {
 
   const promise = new Promise(async (resolve, reject) => {
     try {
-      const headers = new Headers({
-        'Content-Type': 'application/json',
-      })
-
       const response = await fetch(
         uri,
         {
-          headers,
           method: 'GET',
         },
       )
@@ -76,7 +71,7 @@ export default function(state = INITIAL_STATE, action) {
     case `${READ_ALL}_FULFILLED`:
       return state.merge(
         {
-          data: action.payload.documents,
+          data: action.payload,
         },
         {
           deep: true,

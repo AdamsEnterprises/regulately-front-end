@@ -7,6 +7,7 @@ import app from 'reducers/app'
 const regulation = (state={}, action) => {
   switch (action.type) {
     case 'GET_REGULATION_FULFILLED':
+      console.log(action)
       return action.payload;
     default:
       return state;
