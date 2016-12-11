@@ -17,79 +17,50 @@ const AppDrawer = ({
 }) => (
   <ScrollArea
     className={className}
-    speed={0.8}
+    speed={0.5}
     horizontal={false}>
-    <List>
-      <Subheader>
-        Categories
-      </Subheader>
+    <div className='app-drawer__inner'>
+      <List>
+        <Subheader>
+          Categories
+        </Subheader>
 
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Aerospace'
-        secondaryText='201' />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText='Transportation'
+          secondaryText='201' />
 
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Technology'
-        secondaryText='21' />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText='Technology'
+          secondaryText='21' />
 
-      <ListItem primaryText='Clear All'/>
-    </List>
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText='Enviroment / Agriculture'
+          secondaryText='Ag and Environment' />
 
-    <Divider />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText='Commerce and International'
+          secondaryText='15' />
 
-    <List>
-      <Subheader>
-        Document Type
-      </Subheader>
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText='Defense, Law Enforcement & Security'
+          secondaryText='150' />
 
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Notice'
-        secondaryText='' />
+        <ListItem primaryText='Clear All'/>
+      </List>
 
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Proposed Rule'
-        secondaryText='' />
+      <Divider />
 
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Rule'
-        secondaryText='' />
-
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Supporting Material'
-        secondaryText='29' />
-
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Other'
-        secondaryText='201' />
-
-      <ListItem
-        leftCheckbox={<Checkbox />}
-        primaryText='Public Submission'
-        secondaryText='' />
-
-      <ListItem primaryText='Clear All'/>
-    </List>
-
-    <Divider />
-
-    <List>
-      <ListItem
-        rightToggle={<Toggle />}
-        primaryText='Only Open Documents' />
-    </List>
-
-    <Divider />
-
-    <List>
-      <ListItem primaryText='something'/>
-    </List>
+      <List>
+        <ListItem
+          rightToggle={<Toggle />}
+          primaryText='Only Open Documents' />
+      </List>
+    </div>
   </ScrollArea>
 )
 

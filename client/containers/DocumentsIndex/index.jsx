@@ -3,10 +3,12 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Card from 'material-ui/Card'
 import Subheader from 'material-ui/Subheader'
+import ScrollArea from 'react-scrollbar'
 
 import DocumentsList from 'components/DocumentsList'
+import SentimentChart from 'components/SentimentChart'
 
-import 'styles/document-index.scss'
+import 'styles/documents-index.scss'
 
 class DocumentsIndex extends Component {
   render() {
@@ -22,15 +24,17 @@ class DocumentsIndex extends Component {
     ]
 
     return (
-      <div className='documents-index'>
-        <Subheader>
-          All Regulations
-        </Subheader>
+      <ScrollArea className='documents-index'>
+        <div className='documents-index__inner'>
+          <Subheader>
+            All Regulations
+          </Subheader>
 
-        <Card>
-          <DocumentsList items={items} />
-        </Card>
-      </div>
+          <Card>
+            <DocumentsList items={items} />
+          </Card>
+        </div>
+      </ScrollArea>
     )
   }
 }

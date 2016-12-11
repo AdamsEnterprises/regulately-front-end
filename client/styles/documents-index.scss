@@ -1,0 +1,11 @@
+.documents-index {
+  padding: 32px 0;
+  height: 100%;
+
+  &__inner {
+    padding: 0 24px 128px 16px;
+    margin: 0 auto;
+    max-width: 800px;
+    width: 100%;
+  }
+}
