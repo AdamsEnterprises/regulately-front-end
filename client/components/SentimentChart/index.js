@@ -17,6 +17,7 @@ export default class SentimentChart extends Component {
     options: {
       title: '',
       pieHole: 0.4,
+      legend: 'bottom',
     },
   }
 
@@ -27,7 +28,7 @@ export default class SentimentChart extends Component {
         data={this.state.data}
         options={this.state.options}
         graph_id='SentimentChart'
-        width='100%'
+        width='256px'
         height='256px' />
     )
   }

@@ -23,19 +23,34 @@
     "comments": [
       {
         "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
-        "sentiment": "positive"
+        "sentiment": "positive",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
       },
       {
         "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
-        "sentiment": "negative"
+        "sentiment": "negative",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
       },
       {
         "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
-        "sentiment": "positive"
+        "sentiment": "positive",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
       },
       {
         "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
-        "sentiment": "positive"
+        "sentiment": "positive",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
       }
 
     ]
@@ -64,20 +79,35 @@
     "comments": [
       {
         "text": "This is not \"guidance\" for tax-exempt social welfare organizations.  IRSREG- 134417-13 is a blatant subversive attack on America's Constitutional right to free speech.  The First Amendment guarantees its citizens (the People) their right to \"free speech\" as an individual and as an organization.  In Citizens United v. FEC the Supreme Court struck down essentially the same rules (albeit these are worse in that they include state and local elections).  Any restrictions, regulations, or direct impairment of the First Amendment must not be tolerated.",
-        "sentiment": "positive"
+        "sentiment": "positive",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
       },
       {
         "text": "Comment Attachment Docket # EPA-HQ-OPP-2006-0239 \nTried multiple times to attach a document containing comments unsuccessfuly.  Mailed comments 8/17/2009",
-        "sentiment": "neutral"
+        "sentiment": "neutral",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
       },
       {
         "text": "Requests that the FDA amend 21 C.F.R. § 101.9{c)(6)(i) to include chicory root extract in the definition of dietary fiber because chicory root extract improves laxation and increases mineral absorption, both of which are physiological health benefits that FDA has identified as benefits of dietary fiber",
-          "sentiment": "negative"
-        },
-        {
-          "text": "Please do not allow the widespread use of the herbicide 2, 4-D in our country.  The poisoning and depletion of our farming soil in massive farming operations using toxic chemical fertilizers, pesticides and herbicides is a serious issue - much more urgent than global climate change!  Why are we ignoring this?",
-          "sentiment": "negative"
-        }
-    ]
+        "sentiment": "negative",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
+
+      },
+      {
+        "text": "Please do not allow the widespread use of the herbicide 2, 4-D in our country.  The poisoning and depletion of our farming soil in massive farming operations using toxic chemical fertilizers, pesticides and herbicides is a serious issue - much more urgent than global climate change!  Why are we ignoring this?",
+        "sentiment": "negative",
+        "submitter_name": "Jane Doe",
+        "title": "I care about IRS",
+        "date": "2016-10-04T00:00:00-04:00"
       }
+    ]
+  }
 ]

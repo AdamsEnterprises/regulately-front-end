@@ -6,6 +6,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import iconDict from 'utils/agencyIcons';
 import {connect} from 'react-redux';
 
+import SentimentChart from 'components/SentimentChart';
+
 import formatDate from 'utils/formatDate';
 
 import styles from 'styles/dialog.scss';
@@ -14,9 +16,36 @@ const dialogStyles = {
   height: '800px',
   maxWidth: 'none',
   position: 'relative',
+  zIndex: '1000000',
 }
 
 
+const DialogComment = ({comment}) => {
+  let tone;
+  switch(true) {
+    case (comment.tone > 0):
+      return 'positive';
+      break;
+    case (comment.tone < 0):
+      return 'negative';
+      break;
+    case (comment.tone === 0):
+      return 'neutral';
+      break;
+  }
+  return (
+    <div className={`dialog-comment-item dialog-comment-${tone}`}>
+      <div className='dialog-comment-info'>
+        <span>{comment.title}</span>
+        <span>{comment.submitter_name}</span>
+        <span>{formatDate(comment.date)}</span>
+      </div>
+      <div className='dialog-comment-content'>
+        {comment.text}
+      </div>
+    </div>
+  )
+}
 
 const Modal = ({regulation, app}) => (
   <Dialog
@@ -61,8 +90,16 @@ const Modal = ({regulation, app}) => (
           {regulation.abstract}
         </div>
         <div className='dialog-chart-main'>
+          <SentimentChart />
         </div>
       </div>
+    </div>
+    <div className='dialog-comments'>
+      {
+        regulation.comments.map(comment => {
+          return <DialogComment comment={comment} />
+        })
+      }
     </div>
   </Dialog>
 )
