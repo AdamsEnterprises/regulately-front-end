@@ -60,7 +60,7 @@ const mapStateToProps = ({documents}) => ({documents})
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {
-    onClick: () => { toggleDialog(); getRegulation();},
+    onClick: toggleDialog,
     read: documents.read,
     readAll: documents.readAll,
   },

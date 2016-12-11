@@ -25,6 +25,12 @@ const AppDrawer = ({
   <ScrollArea
     className={className}
     speed={0.5}
+    verticalSrollbarStyle={{
+      zIndex: 51,
+    }}
+    verticalContainerStyle={{
+      zIndex: 50,
+    }}
     horizontal={false}>
     <div className='app-drawer__inner'>
       <List>
