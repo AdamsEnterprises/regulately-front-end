@@ -56,7 +56,7 @@ const Modal = ({regulation, app, toggleDialog}) => (
     contentStyle={dialogStyles}>
     <div className='dialog-title-bar'>
       <div className='dialog-title'>
-        <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`}>
+        <a href={`https://www.regulations.gov/document?D=${regulation.document_id}`} target="_blank">
           {regulation.title}
           <i className='material-icons'>link</i>
         </a>
