@@ -16,7 +16,9 @@ export default class App extends Component {
   render() {
     return (
       <div className='app'>
-        <AppBar title='Regulately' />
+        <AppBar
+          className='app__appbar'
+          title='Regulately' />
 
         <div className='app__body'>
           <AppDrawer
