@@ -16,8 +16,6 @@ const dialogStyles = {
   position: 'relative',
 }
 
-
-
 const Modal = ({regulation, app}) => (
   <Dialog
     open={app.modal.open}
@@ -66,6 +64,7 @@ const Modal = ({regulation, app}) => (
     </div>
   </Dialog>
 )
+
 const mapStateToProps = ({regulation, app}) => ({
   regulation,
   app,
