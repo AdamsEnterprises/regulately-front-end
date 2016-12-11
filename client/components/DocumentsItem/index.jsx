@@ -43,6 +43,10 @@ const DocumentsItem = ({
   }
   timeStyle = timeStylePrefix + timeStyleColor
 
+const engagementRatePrefix = "documents-item__engagement--"
+const engagmentRateValueMap = {'-1': 'Down', '0': 'Flat', '1': 'Up'}
+const engagementRateValue = engagmentRateValueMap[String(item.engagementRate)] ? engagmentRateValueMap[String(item.engagementRate)] : 'Missing'
+const engagementRateStyle = engagementRatePrefix + engagementRateValue
 
   const primaryText = (
     <div>
@@ -82,6 +86,9 @@ const DocumentsItem = ({
         rightIconButton={iconButtonElement}
         secondaryText={item.numberOfComments === 1 ? `${item.category} | ${item.numberOfComments} comment` : `${item.category} | ${item.numberOfComments} comments`}
         secondaryTextLines={2} />
+        <div className={engagementRateStyle}>
+          Engagement Rate {engagementRateValue}
+        </div>
 
         {
           isLast &&
