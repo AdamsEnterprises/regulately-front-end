@@ -11,12 +11,13 @@ const API_URI = 'https://api.data.gov:443/regulations/v3/documents.json'
 export const readAll = (query = {}) => {
   let uri = new URI(API_URI)
     .search({
-      api_key: API_KEY,
       ...query,
     })
     .toString()
 
-  uri = "https://api.data.gov:443/regulations/v3/documents.json?api_key=Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk"
+
+    uri = "localhost:5000/dockets/USCG-2000-7080";
+//  uri = "https://api.data.gov:443/regulations/v3/documents.json?api_key=Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk"
 
   const promise = new Promise(async (resolve, reject) => {
     try {

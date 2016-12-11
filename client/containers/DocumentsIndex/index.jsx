@@ -6,7 +6,7 @@ import Subheader from 'material-ui/Subheader'
 import CircularProgress from 'material-ui/CircularProgress'
 import ScrollArea from 'react-scrollbar'
 
-import {toggleDialog} from 'actions'
+import {toggleDialog, getRegulation} from 'actions'
 import DocumentsList from 'components/DocumentsList'
 import SentimentChart from 'components/SentimentChart'
 
