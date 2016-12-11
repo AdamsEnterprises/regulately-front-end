@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+
+  <button id="regsgov-trigger">Comment Now!</button>
+  <div id="regsgov-widget"></div>
+
+  <script src="https://cdn.jsdelivr.net/regsgov-comment-widget/latest/widget.min.js"></script>
+  <script>
+    window.onload = function(){
+      RegsgovCommentWidget.init({apikey: "4ktS0d9mrS3LfJL9VgaijzGzKAWCO5x90ALSlpWE",
+      docid: "NOAA-NMFS-2016-0100-0001",
+      triggerElement: "#regsgov-trigger"});
+    }
+  </script>
+</body>
+</html>
