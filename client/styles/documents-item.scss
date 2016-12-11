@@ -1,18 +1,29 @@
 $green-500: #4CAF50;
 $amber-500: #FFC107;
 $red-500: #F44336;
+$grey-500: #9E9E9E;
 
 .documents-item {
   &__time {
+    font-size: 12px;
+    margin-left: 10px;
+
+    &--grey {
+      @extend .documents-item__time;
+      color: $grey-500;
+    }
     &--green {
+      @extend .documents-item__time;
       color: $green-500;
     }
 
     &--yellow {
+      @extend .documents-item__time;
       color: $amber-500;
     }
 
     &--red {
+      @extend .documents-item__time;
       color: $red-500;
     }
   }
