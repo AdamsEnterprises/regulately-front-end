@@ -21,7 +21,6 @@ const ItemText = ({category}) => (
 
 const AppDrawer = ({
   className,
-  isOpen,
 }) => (
   <ScrollArea
     className={className}
@@ -32,6 +31,7 @@ const AppDrawer = ({
         <Subheader>
           Categories
         </Subheader>
+
         <ListItem
           leftCheckbox={<Checkbox />}
           primaryText={<ItemText category={categories.AD} />}

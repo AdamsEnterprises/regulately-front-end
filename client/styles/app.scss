@@ -1,3 +1,5 @@
+$cubic-bezier: cubic-bezier(.1,.68,.21,.89);
+
 .app {
   height: 100vh;
   overflow: hidden;
@@ -20,7 +22,29 @@
   }
 
   &__drawer {
-    flex: 0 0 320px;
+    transition: flex 0.25s $cubic-bezier;
     height: 100%;
+
+    .app-drawer__inner {
+      transition: transform 0.25s $cubic-bezier;
+    }
+
+    &--open {
+      @extend .app__drawer;
+      flex: 0 0 320px;
+
+      .app-drawer__inner {
+        transform: translateX(0px);
+      }
+    }
+
+    &--closed {
+      @extend .app__drawer;
+      flex: 0 0 0px;
+
+      .app-drawer__inner {
+        transform: translateX(-320px);
+      }
+    }
   }
 }
