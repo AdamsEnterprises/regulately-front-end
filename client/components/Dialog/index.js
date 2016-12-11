@@ -27,30 +27,36 @@ const dialogStyles = {
 const DialogComment = ({comment}) => {
   let tone;
   switch(true) {
-    case (comment.tone > 0):
-      return 'positive';
+    case (comment.sentiment > 0):
+      tone = 'positive';
       break;
-    case (comment.tone < 0):
-      return 'negative';
+    case (comment.sentiment < 0):
+      tone = 'negative';
       break;
-    case (comment.tone === 0):
-      return 'neutral';
+    case (comment.sentiment === 0):
+      tone = 'neutral';
       break;
+    case (!comment.sentiment):
+      tone = 'none';
+    break;
   }
   return (
-    <div className={`dialog-comment-item dialog-comment-${comment.sentiment}`}>
+    <div className={`dialog-comment-item dialog-comment-${tone}`}>
       <div className='dialog-comment-info'>
-        <span>{comment.submitter_name}</span>
-        <span>{formatDate(comment.date)}</span>
+        <div className='dialog-comment-name'>
+          <p className='dialog-comment-title'>{comment.submitterName}</p>
+          <p className='dialog-comment-subtitle'>{comment.title}</p>
+        </div>
+        <span>{formatDate(comment.postedDate)}</span>
       </div>
       <div className='dialog-comment-content'>
-        {comment.text}
+        {comment.commentText}
       </div>
     </div>
   )
 }
 
-const Modal = ({regulation, app, toggleDialog}) => (
+const Modal = ({regulation, app, toggleDialog, comments}) => (
   <Dialog
     autoScrollBodyContent={true}
     modal={false}
@@ -76,11 +82,11 @@ const Modal = ({regulation, app, toggleDialog}) => (
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Posted: </span>
-          <span className='dialog-info-value'>{formatDate(regulation.comment_start_date)}</span>
+          <span className='dialog-info-value'>{regulation.comment_start_date ? formatDate(regulation.comment_start_date) : ''}</span>
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Comments closed: </span>
-          <span className='dialog-info-value'>{formatDate(regulation.comment_end_date)}</span>
+          <span className='dialog-info-value'>{regulation.comment_end_date ? formatDate(regulation.comment_end_date) : ''}</span>
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Agency: </span>
@@ -88,34 +94,39 @@ const Modal = ({regulation, app, toggleDialog}) => (
         </div>
         <div className='dialog-info'>
           <span className='dialog-info-label'>Total comments: </span>
-          <span className='dialog-info-value'>{regulation.num_comments}</span>
+          <span className='dialog-info-value'>{regulation.numberOfComments}</span>
         </div>
       </div>
       <div className='dialog-main'>
         <div className='dialog-abstract'>
-        <h3 className='dialog-info-label'>Summary</h3>
-
-        <RaisedButton label='ADD COMMENT' />
-          {regulation.abstract}
+          <h3 className='dialog-info-label'>Summary</h3>
+          <div dangerouslySetInnerHTML={{__html: regulation.docketAbstract}}></div>
         </div>
-        <div className='dialog-chart-main'>
-          <SentimentChart />
-        </div>
+        {
+          comments && regulation.sentiment
+            ? <div className='dialog-chart-main'>
+                <SentimentChart positive={regulation.sentiment.positive} negative={regulation.sentiment.negative} neutral={regulation.numberOfComments - regulation.sentiment.positive - regulation.sentiment.negative}/>
+              </div>
+            : ''
+        }
       </div>
     </div>
     <h3 className='dialog-info-label'>Comments</h3>
     <div className='dialog-comments'>
       {
-        regulation.comments.map(comment => {
-          return <DialogComment comment={comment} />
+        comments.map(comment => {
+          if (comment.commentText) {
+            return <DialogComment comment={comment} />
+          }
         })
       }
       </div>
   </Dialog>
 )
 
-const mapStateToProps = ({regulation, app}) => ({
+const mapStateToProps = ({regulation, app, comments}) => ({
   regulation,
+  comments,
   app,
 })
 

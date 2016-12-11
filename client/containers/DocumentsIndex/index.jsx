@@ -6,7 +6,7 @@ import Subheader from 'material-ui/Subheader'
 import CircularProgress from 'material-ui/CircularProgress'
 import ScrollArea from 'react-scrollbar'
 
-import {toggleDialog, getRegulation} from 'actions'
+import {toggleDialog, getRegulation, getComments} from 'actions'
 import DocumentsList from 'components/DocumentsList'
 import SentimentChart from 'components/SentimentChart'
 
@@ -16,7 +16,7 @@ import 'styles/documents-index.scss'
 
 class DocumentsIndex extends Component {
   componentWillMount() {
-//    return this.props.readAll()
+    return this.props.readAll()
   }
 
   render() {
@@ -50,7 +50,11 @@ class DocumentsIndex extends Component {
           </Subheader>
 
           <Card className={cardStyle}>
-            <DocumentsList onClick={this.props.onClick} items={this.props.items} />
+            <DocumentsList
+                getComments={this.props.getComments}
+                toggleDialog={this.props.toggleDialog}
+                getRegulation={this.props.getRegulation}
+                items={this.props.documents.data} />
           </Card>
 
           <div className={loadingStyle}>
@@ -69,7 +73,9 @@ const mapStateToProps = ({documents}) => ({
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {
-    onClick: toggleDialog,
+    toggleDialog,
+    getRegulation,
+    getComments,
     read: documents.read,
     readAll: documents.readAll,
   },
