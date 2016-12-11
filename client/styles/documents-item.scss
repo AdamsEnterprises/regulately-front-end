@@ -1,0 +1,19 @@
+$green-500: #4CAF50;
+$amber-500: #FFC107;
+$red-500: #F44336;
+
+.documents-item {
+  &__time {
+    &--green {
+      color: $green-500;
+    }
+
+    &--yellow {
+      color: $amber-500;
+    }
+
+    &--red {
+      color: $red-500;
+    }
+  }
+}

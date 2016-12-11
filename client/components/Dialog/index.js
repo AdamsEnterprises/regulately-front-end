@@ -103,6 +103,7 @@ const Modal = ({regulation, app}) => (
     </div>
   </Dialog>
 )
+
 const mapStateToProps = ({regulation, app}) => ({
   regulation,
   app,

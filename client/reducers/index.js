@@ -11,7 +11,7 @@ const regulation = (state=documents[0], action) => {
   }
 };
 
-const app = (state={modal: {open: true}}, action) => {
+const app = (state={modal: {open: false}}, action) => {
   switch (action.type) {
     case 'OPEN_MODAL':
       return Object.assign({}, state, {
