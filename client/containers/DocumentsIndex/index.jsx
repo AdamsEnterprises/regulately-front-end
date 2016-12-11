@@ -49,17 +49,16 @@ class DocumentsIndex extends Component {
             All Regulations
           </Subheader>
 
-          <Card className={cardStyle}>
-            <DocumentsList
-                getComments={this.props.getComments}
-                toggleDialog={this.props.toggleDialog}
-                getRegulation={this.props.getRegulation}
-                items={this.props.items} />
-          </Card>
-
-          <div className={loadingStyle}>
-            <CircularProgress />
-          </div>
+          {
+              this.props.items.length > 0 &&
+              <Card className={cardStyle}>
+                <DocumentsList
+                    getComments={this.props.getComments}
+                    toggleDialog={this.props.toggleDialog}
+                    getRegulation={this.props.getRegulation}
+                    items={this.props.items} />
+              </Card>
+          }
         </div>
       </ScrollArea>
     )
