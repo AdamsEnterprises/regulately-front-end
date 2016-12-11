@@ -7,21 +7,30 @@
   padding: 24px;
   display: flex;
   flex-direction: row;
-  align-items: space-between;
+  justify-content: space-between;
+  color: #fff;
+  align-items: center;
+  .close {
+    cursor: pointer;
+  }
 }
 .dialog-title {
   display: flex;
   align-items: center;
   a {
+    font-weight: 200;
     color: #fff;
     text-decoration: none;
+    &:hover {
+      color: #0091EA;
+    }
   }
   i {
     padding-left: 16px;
   }
 }
 .dialog-content {
-  margin-top: 64px;
+  margin-top: 72px;
 }
 .dialog-info-container {
   display: flex;
@@ -35,5 +44,41 @@
 .dialog-info-value {
   color: #000;
 }
+.dialog-main {
+  display: flex;
+  justify-content: space-between;
+//  align-items: center;
+}
+.dialog-abstract {
+  padding-top: 32px;
+}
+.dialog-chart-main {
+  width: 400px
+}
 
-
+.dialog-comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.dialog-comment-item {
+  box-shadow: 0 1px 2px 2px rgba(0,0,0,0.09);
+  margin: 16px 0;
+  padding: 24px;
+}
+.dialog-comment-negative {
+  border-left: 8px solid #D32F2F;
+}
+.dialog-comment-positive {
+  border-left: 8px solid #00C853;
+}
+.dialog-comment-neutral {
+  border-left: 8px solid #0091EA;
+}
+.dialog-comment-info {
+  color: #555;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}

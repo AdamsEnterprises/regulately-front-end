@@ -8,8 +8,16 @@ import Subheader from 'material-ui/Subheader'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 import Toggle from 'material-ui/Toggle'
+import categories from 'utils/agencyIcons'
 
 import 'styles/app-drawer.scss'
+
+const ItemText = ({category}) => (
+  <div className='drawer-category-title'>
+    <span>{category.name}</span>
+    <i className='material-icons'>{category.icon}</i>
+  </div>
+)
 
 const AppDrawer = ({
   className,
@@ -24,32 +32,52 @@ const AppDrawer = ({
         <Subheader>
           Categories
         </Subheader>
-
         <ListItem
           leftCheckbox={<Checkbox />}
-          primaryText='Transportation'
+          primaryText={<ItemText category={categories.AD} />}
           secondaryText='201' />
 
         <ListItem
           leftCheckbox={<Checkbox />}
-          primaryText='Technology'
+          primaryText={<ItemText category={categories.AEP} />}
           secondaryText='21' />
 
         <ListItem
           leftCheckbox={<Checkbox />}
-          primaryText='Enviroment / Agriculture'
+          primaryText={<ItemText category={categories.BFS} />}
           secondaryText='Ag and Environment' />
 
         <ListItem
           leftCheckbox={<Checkbox />}
-          primaryText='Commerce and International'
+          primaryText={<ItemText category={categories.CT} />}
           secondaryText='15' />
 
         <ListItem
           leftCheckbox={<Checkbox />}
-          primaryText='Defense, Law Enforcement & Security'
+          primaryText={<ItemText category={categories.LES} />}
           secondaryText='150' />
 
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText={<ItemText category={categories.EELS} />}
+          secondaryText='150' />
+
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText={<ItemText category={categories.EUMM} />}
+          secondaryText='150' />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText={<ItemText category={categories.HCFP} />}
+          secondaryText='150' />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText={<ItemText category={categories.PRE} />}
+          secondaryText='150' />
+        <ListItem
+          leftCheckbox={<Checkbox />}
+          primaryText={<ItemText category={categories.ITT} />}
+          secondaryText='150' />
         <ListItem primaryText='Clear All'/>
       </List>
 
