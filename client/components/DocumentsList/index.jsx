@@ -18,7 +18,9 @@ export default class DocumentsList extends  Component {
 
       return (
         <DocumentsItem
-          onClick={this.props.onClick}
+          getComments={this.props.getComments}
+          getRegulation={this.props.getRegulation}
+          toggleDialog={this.props.toggleDialog}
           item={item}
           isLast={isLast} />
       )

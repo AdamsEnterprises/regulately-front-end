@@ -17,7 +17,7 @@ export const readAll = (query = {}) => {
 
 
     uri = "localhost:5000/dockets/USCG-2000-7080";
-//  uri = "https://api.data.gov:443/regulations/v3/documents.json?api_key=Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk"
+    //uri = "https://api.data.gov:443/regulations/v3/documents.json?api_key=Hp2f89PeWtMJLhAzRrqaMZNmNukuxzh6YyMCTbuk"
 
   const promise = new Promise(async (resolve, reject) => {
     try {

@@ -11,10 +11,13 @@ const associateHandler = (id, handler)  => () => handler(id)
 const DocumentsItem = ({
   item,
   isLast,
-  onClick,
+  getRegulation,
+  toggleDialog,
+  getComments,
   onStar,
 }) => {
-  const handleClick = associateHandler(item.id, onClick)
+  const loadComments = associateHandler(item.id, getComments)
+  const loadDocument = associateHandler(item.id, getRegulation)
   const handleStar = associateHandler(item.id, onStar)
 
   const now = moment()
@@ -63,7 +66,11 @@ const DocumentsItem = ({
   return (
     <div className='documents-item'>
       <ListItem
-        onClick={handleClick}
+        onClick={() => {
+          loadDocument()
+          loadComments()
+          toggleDialog()
+        }}
         key={item.title}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
