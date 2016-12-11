@@ -56,7 +56,7 @@ const DialogComment = ({comment}) => {
         {comment.commentText}
       </div>
       <div>
-        &nbsp;<br>
+        &nbsp;<br/>
         {comment.upvotes} <a href="#" onClick={function() { upvoteCommentAsync(comment.documentId)} }>&#x2191; up</a>
         &nbsp;&#xb7;&nbsp;
         {comment.downvotes} <a href="#" onClick={function() { downvoteCommentAsync(comment.documentId)} }>&#x2193; down</a>
