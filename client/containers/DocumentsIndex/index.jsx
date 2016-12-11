@@ -16,7 +16,7 @@ import 'styles/documents-index.scss'
 
 class DocumentsIndex extends Component {
   componentWillMount() {
-    return this.props.readAll()
+//    return this.props.readAll()
   }
 
   render() {
