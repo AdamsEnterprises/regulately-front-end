@@ -55,11 +55,10 @@ const DialogComment = ({comment}) => {
       <div className='dialog-comment-content'>
         {comment.commentText}
       </div>
-      <div>
-        &nbsp;<br/>
-        {comment.upvotes} <a href="#" onClick={function() { upvoteCommentAsync(comment.documentId)} }>&#x2191; up</a>
+      <div className='dialog-comment-voting'>
+        <span className='dialog-comment-upvotes'>{comment.upvotes} <a href="#" onClick={function() { upvoteCommentAsync(comment.documentId)} }>&#x2191; up</a></span>
         &nbsp;&#xb7;&nbsp;
-        {comment.downvotes} <a href="#" onClick={function() { downvoteCommentAsync(comment.documentId)} }>&#x2193; down</a>
+        <span className='dialog-comment-downvotes'>{comment.downvotes} <a href="#" onClick={function() { downvoteCommentAsync(comment.documentId)} }>&#x2193; down</a></span>
       </div>
     </div>
   )
