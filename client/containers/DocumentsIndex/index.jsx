@@ -3,25 +3,36 @@ import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import Card from 'material-ui/Card'
 import Subheader from 'material-ui/Subheader'
+import CircularProgress from 'material-ui/CircularProgress'
 import ScrollArea from 'react-scrollbar'
 
 import DocumentsList from 'components/DocumentsList'
 import SentimentChart from 'components/SentimentChart'
 
+import * as documents from 'reducers/documents'
+
 import 'styles/documents-index.scss'
 
 class DocumentsIndex extends Component {
+  componentWillMount() {
+    return this.props.readAll()
+  }
+
   render() {
-    const items = [
-      {
-        title: 'some title',
-        subtitle: 'some awesom submtitle',
-      },
-      {
-        title: 'some other title',
-        subtitle: 'some awesom submtitle',
-      },
-    ]
+    let cardStyle
+    let loadingStyle
+
+    switch (true) {
+      case `${READ_ALL}_FULFILLED`:
+        cardStyle = 'documents-index__card--visible'
+        loadingStyle = 'documents-index__loading--hidden'
+
+      case `${READ_ALL}_PENDING`:
+        cardStyle = 'documents-index__card--hidden'
+        loadingStyle = 'documents-index__loading--visible'
+
+      default:
+    }
 
     return (
       <ScrollArea className='documents-index'>
@@ -30,9 +41,11 @@ class DocumentsIndex extends Component {
             All Regulations
           </Subheader>
 
-          <Card>
-            <DocumentsList items={items} />
+          <Card className={cardStyle}>
+            <DocumentsList items={this.props.documents.data} />
           </Card>
+
+          <CircularProgress className={loadingStyle} />
         </div>
       </ScrollArea>
     )
@@ -43,6 +56,8 @@ const mapStateToProps = ({documents}) => ({documents})
 
 const mapDispatchToProps =  dispatch => bindActionCreators(
   {
+    read: documents.read,
+    readAll: documents.readAll,
   },
   dispatch,
 )

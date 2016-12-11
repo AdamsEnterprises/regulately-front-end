@@ -13,6 +13,7 @@ export default class DocumentsList extends  Component {
   }
 
   render() {
+    console.log(this.props.items)
     const elements = this.props.items.map((item, index)=> {
       const isLast = this.props.length - 1 === index
 
