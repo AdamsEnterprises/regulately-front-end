@@ -45,7 +45,7 @@ const DocumentsItem = ({
 
 const engagementRatePrefix = "documents-item__engagement--"
 const engagmentRateValueMap = {'-1': 'Down', '0': 'Flat', '1': 'Up'}
-const engagementRateValue = engagmentRateValueMap[String(item.engagementRate)]
+const engagementRateValue = engagmentRateValueMap[String(item.engagementRate)] ? engagmentRateValueMap[String(item.engagementRate)] : 'Missing'
 const engagementRateStyle = engagementRatePrefix + engagementRateValue
 
   const primaryText = (
