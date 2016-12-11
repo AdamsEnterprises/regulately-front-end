@@ -1,7 +1,6 @@
 .dialog-title-bar {
   width: 100%;
   background: #212121;
-  color: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -10,3 +9,31 @@
   flex-direction: row;
   align-items: space-between;
 }
+.dialog-title {
+  display: flex;
+  align-items: center;
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  i {
+    padding-left: 16px;
+  }
+}
+.dialog-content {
+  margin-top: 64px;
+}
+.dialog-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 16px 0 0;
+}
+.dialog-info-label {
+  color: #aaa;
+}
+.dialog-info-value {
+  color: #000;
+}
+
+
