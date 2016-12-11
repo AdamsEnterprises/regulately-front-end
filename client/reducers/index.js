@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
 
-import documents from 'reducers/documents'
+import mock from 'mock/documents.json'
 
-import mock from '../mock/documents.json';
+import documents from 'reducers/documents'
+import app from 'reducers/app'
 
 
 
@@ -16,21 +17,8 @@ const regulation = (state=mock[0], action) => {
   }
 };
 
-const app = (state={modal: {open: true}}, action) => {
-  switch (action.type) {
-    case 'TOGGLE_DIALOG':
-      return Object.assign({}, state, {
-        modal: {
-          open: !state.modal.open,
-        }
-      })
-    default:
-      return state;
-  }
-};
-
 export default combineReducers({
-  regulation,
-  documents,
   app,
+  documents,
+  regulation,
 });

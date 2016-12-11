@@ -4,6 +4,7 @@ import {grey400} from 'material-ui/styles/colors'
 import {ListItem} from 'material-ui/List'
 import moment from 'moment'
 import React from 'react'
+import 'styles/documents-item.scss'
 
 const associateHandler = (id, handler)  => () => handler(id)
 
@@ -20,23 +21,25 @@ const DocumentsItem = ({
   const diff = now.diff(new Date(), 'days')
 
   let timeStyle
-
-  switch(true) {
-    case (diff >= 14):
-      timeStyle = 'documents-item__time--green'
-      break
-
-    case (diff >= 7):
-      timeStyle = 'documents-item__time--yellow'
-      break
-
-    case (diff >= 3):
-      timeStyle = 'documents-item__time--red'
-      break
+  let timeStylePrefix = "documents-item__time--"
+  let timeStyleColor = "grey"
+  const commentEndDateObj = moment(item.comment_end_date)
+  const timeDiff = moment.duration(commentEndDateObj.diff(moment(new Date())))
+  let timeDiffHours = timeDiff.asHours()
+  let timeText
+  if (timeDiffHours < 0) {
+    timeText = 'Comments Closed'
+  } else if (timeDiffHours < 24) {
+    timeText = parseInt(timeDiffHours) + " hours"
+    timeStyleColor = "red"
+  } else {
+    let timeDiffDays = parseInt(timeDiff.asDays(), 10)
+    timeText = timeDiffDays + " days"
+    timeStyleColor = "yellow"
+    if (timeDiffDays > 15) timeStyleColor = "green"
   }
+  timeStyle = timeStylePrefix + timeStyleColor
 
-  const timeText = moment(new Date())
-    .fromNow()
 
   const primaryText = (
     <div>
