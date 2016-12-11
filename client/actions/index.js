@@ -6,8 +6,8 @@ const commentsUri = 'http://23.99.1.48/comments/'
 const getRegulationAsync = (id) => new Promise((resolve, reject) => {
   console.log(id)
   return fetch(`${uri + id}`)
-    .then(response => response.json()
-         .then(json => resolve(json)))
+    .then(response => response.json())
+         .then(json => resolve(json))
     .catch(err => console.log('error fetching resource, ', reject(err)));
 });
 

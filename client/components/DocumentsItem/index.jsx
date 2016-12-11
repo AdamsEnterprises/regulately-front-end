@@ -84,7 +84,7 @@ const engagementRateStyle = engagementRatePrefix + engagementRateValue
         key={item.title}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
-        secondaryText={item.category}
+        secondaryText={item.numberOfComments === 1 ? `${item.category} | ${item.numberOfComments} comment` : `${item.category} | ${item.numberOfComments} comments`}
         secondaryTextLines={2} />
         <div className={engagementRateStyle}>
           Engagement Rate {engagementRateValue}

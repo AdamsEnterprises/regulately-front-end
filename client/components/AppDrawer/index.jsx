@@ -27,6 +27,7 @@ const AppDrawer = ({
     className,
     onToggleCategory,
     onToggleOpen,
+    isOpen,
 }) => (
   <ScrollArea
     className={className}
@@ -40,6 +41,16 @@ const AppDrawer = ({
     horizontal={false}>
     <div className='app-drawer__inner'>
       <List>
+        <ListItem
+        rightToggle={<Toggle 
+          onToggle={onToggleOpen}
+          toggled={isOpen}/>}
+          primaryText='Only Open Documents' />
+      </List>
+
+      <Divider />
+    <List>
+
         <Subheader>
           Categories
         </Subheader>
@@ -93,16 +104,6 @@ const AppDrawer = ({
           leftCheckbox={<Checkbox onCheck={createCategoryHandler('ITT', onToggleCategory)} />}
           primaryText={<ItemText category={categories.ITT} />}
           secondaryText='150' />
-
-        <ListItem primaryText='Clear All'/>
-      </List>
-
-      <Divider />
-
-      <List>
-        <ListItem
-          rightToggle={<Toggle />}
-          primaryText='Only Open Documents' />
       </List>
     </div>
   </ScrollArea>
