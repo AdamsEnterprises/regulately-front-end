@@ -15,7 +15,7 @@ import 'styles/documents-index.scss'
 
 class DocumentsIndex extends Component {
   componentWillMount() {
-    return this.props.readAll()
+//    return this.props.readAll()
   }
 
   render() {
@@ -23,15 +23,18 @@ class DocumentsIndex extends Component {
     let loadingStyle
 
     switch (true) {
-      case `${READ_ALL}_FULFILLED`:
+      case `${documents.READ_ALL}_FULFILLED`:
         cardStyle = 'documents-index__card--visible'
         loadingStyle = 'documents-index__loading--hidden'
+        break
 
-      case `${READ_ALL}_PENDING`:
+      case `${documents.READ_ALL}_PENDING`:
         cardStyle = 'documents-index__card--hidden'
         loadingStyle = 'documents-index__loading--visible'
+        break
 
       default:
+        break
     }
 
     return (
