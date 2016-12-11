@@ -80,7 +80,7 @@ const DocumentsItem = ({
         key={item.title}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
-        secondaryText={item.category}
+        secondaryText={item.numberOfComments === 1 ? `${item.category} | ${item.numberOfComments} comment` : `${item.category} | ${item.numberOfComments} comments`}
         secondaryTextLines={2} />
 
         {
