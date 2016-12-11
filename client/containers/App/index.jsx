@@ -22,6 +22,45 @@ const titleStyles = {
 import 'styles/app.scss'
 
 class App extends Component {
+    state = {
+        category: [],
+        isOpen: true,
+    }
+
+    handleToggleCategory(value) {
+        let category
+      const isToggled = this.state.category.reduce((carry, item) => {
+          if (value === item) {
+              return true
+          }
+
+          return carry
+      }, false)
+
+      if (isToggled) {
+          category = this.state.category.filter(item => item !== value)
+      } else {
+          category = this.state.category.concat(value)
+      }
+
+      this.setState({
+        category,
+      }, () => {
+          const category = this.state.category.join(',')
+
+          return this.props.readAll({
+              category,
+              isOpen: this.state.isOpen,
+          })
+      })
+  }
+
+  handleToggleOpen(value) {
+      return this.setState({
+          isOpen: isOpen,
+      })
+  }
+
   handleToggleDrawer() {
     return this.props.setDrawerOpen(!this.props.isDrawerOpen)
   }
@@ -53,7 +92,10 @@ class App extends Component {
           titleStyle={titleStyles} />
 
         <div className='app__body'>
-          <AppDrawer className={drawerStyle} />
+        <AppDrawer
+            onToggleCategory={::this.handleToggleCategory}
+            onToggleOpen={::this.handleToggleOpen}
+            className={drawerStyle} />
 
           <Dialog />
 
@@ -73,7 +115,8 @@ const mapStateToProps = ({app}) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
-    setDrawerOpen: app.setDrawerOpen,
+      setDrawerOpen: app.setDrawerOpen,
+      readAll: documents.readAll,
   },
   dispatch,
 )

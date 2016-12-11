@@ -19,8 +19,14 @@ const ItemText = ({category}) => (
   </div>
 )
 
+const createCategoryHandler = (value, handler) => {
+    return event => handler(value)
+}
+
 const AppDrawer = ({
-  className,
+    className,
+    onToggleCategory,
+    onToggleOpen,
 }) => (
   <ScrollArea
     className={className}
@@ -39,51 +45,55 @@ const AppDrawer = ({
         </Subheader>
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('AD', onToggleCategory)} />}
           primaryText={<ItemText category={categories.AD} />}
           secondaryText='201' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('AEP', onToggleCategory)} />}
           primaryText={<ItemText category={categories.AEP} />}
           secondaryText='21' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('BFS', onToggleCategory)} />}
           primaryText={<ItemText category={categories.BFS} />}
           secondaryText='Ag and Environment' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('CT', onToggleCategory)} />}
           primaryText={<ItemText category={categories.CT} />}
           secondaryText='15' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('LES', onToggleCategory)} />}
           primaryText={<ItemText category={categories.LES} />}
           secondaryText='150' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('EELS', onToggleCategory)} />}
           primaryText={<ItemText category={categories.EELS} />}
           secondaryText='150' />
 
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('EUMM', onToggleCategory)} />}
           primaryText={<ItemText category={categories.EUMM} />}
           secondaryText='150' />
+
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('HCFP', onToggleCategory)} />}
           primaryText={<ItemText category={categories.HCFP} />}
           secondaryText='150' />
+
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('PRE', onToggleCategory)} />}
           primaryText={<ItemText category={categories.PRE} />}
           secondaryText='150' />
+
         <ListItem
-          leftCheckbox={<Checkbox />}
+          leftCheckbox={<Checkbox onCheck={createCategoryHandler('ITT', onToggleCategory)} />}
           primaryText={<ItemText category={categories.ITT} />}
           secondaryText='150' />
+
         <ListItem primaryText='Clear All'/>
       </List>
 
