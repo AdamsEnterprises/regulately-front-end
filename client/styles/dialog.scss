@@ -1,16 +1,10 @@
 .dialog-title-bar {
   width: 100%;
-  background: #212121;
-  z-index: 10000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 24px;
   display: flex;
+  font-size: 20px;
   flex-direction: row;
   justify-content: space-between;
-  color: #fff;
-  align-items: center;
+  align-items: flex-start;
   .close {
     cursor: pointer;
     &:hover {
@@ -20,10 +14,10 @@
 }
 .dialog-title {
   display: flex;
-  align-items: center;
+  max-width: 80%;
   a {
+    color: #333;
     font-weight: 200;
-    color: #fff;
     text-decoration: none;
     &:hover {
       color: #0091EA;
