@@ -40,7 +40,7 @@ export const readAll = (query = {}) => {
 }
 
 const INITIAL_STATE = Immutable({
-  data: documents,
+  data: [],
   status: 'INITIAL',
 })
 
