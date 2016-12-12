@@ -86,7 +86,7 @@ const DialogComment = ({comment}) => {
 const Title = ({regulation, toggleDialog}) => (
   <div className='dialog-title-bar'>
     <div className='dialog-title'>
-      <a href={`https://www.regulations.gov/document?D=${regulation.docketId}`} target="_blank">
+      <a href={`https://www.regulations.gov/docket?D=${regulation.docketId}`} target="_blank">
         {regulation.title}
         <i className='material-icons'>link</i>
       </a>
