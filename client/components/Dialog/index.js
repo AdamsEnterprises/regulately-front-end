@@ -17,6 +17,8 @@ import formatDate from 'utils/formatDate';
 
 import styles from 'styles/dialog.scss';
 
+import {upvoteCommentAsync, downvoteCommentAsync} from 'actions/index.js';
+
 const dialogStyles = {
   height: '800px',
   maxWidth: 'none',
@@ -71,6 +73,11 @@ const DialogComment = ({comment}) => {
       </div>
       <div className='dialog-comment-content'>
         {comment.commentText}
+      </div>
+      <div className='dialog-comment-voting'>
+        <span className='dialog-comment-upvotes'>{comment.upvotes} <a href="#" onClick={function() { upvoteCommentAsync(comment.documentId)} }>&#x2191; up</a></span>
+        &nbsp;&#xb7;&nbsp;
+        <span className='dialog-comment-downvotes'>{comment.downvotes} <a href="#" onClick={function() { downvoteCommentAsync(comment.documentId)} }>&#x2193; down</a></span>
       </div>
     </div>
   )

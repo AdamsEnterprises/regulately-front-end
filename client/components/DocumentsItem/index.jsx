@@ -82,6 +82,7 @@ const engagementRateStyle = engagementRatePrefix + engagementRateValue
           toggleDialog()
         }}
         key={item.title}
+        style={{padding: '16px'}}
         primaryText={primaryText}
         rightIconButton={iconButtonElement}
         secondaryText={item.numberOfComments === 1 ? `${item.category} | ${item.numberOfComments} comment` : `${item.category} | ${item.numberOfComments} comments`}

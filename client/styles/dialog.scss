@@ -62,6 +62,7 @@
   width: 400px;
 }
 .comment-title {
+  margin-top: 0;
   margin-left: 32px;
 }
 .dialog-comments {
@@ -102,4 +103,21 @@
   font-size: 14px;
   line-height: 20px;
   width: 80%;
+}
+.dialog-comment-voting {
+  margin-top: 12px;
+}
+.dialog-comment-upvotes {
+  color: #0a0;
+}
+.dialog-comment-downvotes {
+  color: #800;
+}
+.dialog-comment-upvotes a, .dialog-comment-downvotes a {
+  color: #666;
+  text-decoration: none;
+}
+.dialog-comment-upvotes a:hover, .dialog-comment-downvotes a:hover {
+  color: #000;
+  text-decoration: underline;
 }
