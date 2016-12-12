@@ -6,11 +6,22 @@ export default class SentimentChart extends Component {
   }
 
   static defaultProps = {
+      positive: 0,
+      neutral: 0,
+      negative: 0,
   }
 
   state = {
+      chartEvents: [
+          {
+              eventName: 'select',
+              callback: (Chart) => {
+                  return this.props.onChartSelect(Chart.chart.getSelection())
+              },
+          },
+      ],
     data: [
-      ['Task', 'Hours per Day'],
+      ['Sentiment', 'Value'],
       ['Negative', this.props.negative],
       ['Positive', this.props.positive],
       ['Neutral', this.props.neutral],
@@ -25,7 +36,8 @@ export default class SentimentChart extends Component {
 
   render() {
     return (
-      <Chart
+        <Chart
+        chartEvents={this.state.chartEvents}
         chartType='PieChart'
         data={this.state.data}
         options={this.state.options}

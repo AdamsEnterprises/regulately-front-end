@@ -1,4 +1,4 @@
-import React, {component} from 'react';
+import React, {Component} from 'react';
 import Dialog from 'material-ui/Dialog';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton';
@@ -24,6 +24,25 @@ const dialogStyles = {
   zIndex: '1000000',
 }
 
+const filterCommentsBySentiment = (comments, sentiment) => {
+    if (!sentiment) {
+        return comments
+    }
+
+    return comments.filter(item => {
+        if (item.sentiment > 0 && sentiment === 'positive') {
+            return item
+        }
+
+        if (item.sentiment === 0 && sentiment === 'neutral') {
+            return item
+        }
+
+        if (item.sentiment < 0 && sentiment === 'negative') {
+            return item
+        }
+    })
+}
 
 const DialogComment = ({comment}) => {
   let tone;
@@ -57,7 +76,6 @@ const DialogComment = ({comment}) => {
   )
 }
 
-
 const Title = ({regulation, toggleDialog}) => (
   <div className='dialog-title-bar'>
     <div className='dialog-title'>
@@ -73,80 +91,118 @@ const Title = ({regulation, toggleDialog}) => (
   </div>
 )
 
+class Modal extends Component {
+    state = {
+        currentSentiment: null,
+    }
 
-const Modal = ({regulation, app, toggleDialog, comments}) => (
-  <Dialog
-    autoScrollBodyContent={true}
-    modal={false}
-    open={app.modal.open}
-    contentStyle={dialogStyles}>
-    <CardTitle title={<Title regulation={regulation} toggleDialog={toggleDialog} />} subtitle={regulation.category} />
-    <div className='dialog-content'>
-      <div className='dialog-info-container'>
-        <div className='dialog-info'>
-          <span className='dialog-info-label'>Status: </span>
-          <span className='dialog-info-value'>{regulation.is_open ? 'Open' : 'Closed'}</span>
-        </div>
-        {regulation.commentStartDate
-        ? (<div className='dialog-info'>
-            <span className='dialog-info-label'>Posted: </span>
-            <span className='dialog-info-value'>{regulation.commentStartDate ? regulation.commentStartDate : ''}</span>
-          </div>)
-        : ''}
-        {regulation.commentEndDate
-        ? (<div className='dialog-info'>
-            <span className='dialog-info-label'>Comments closed: </span>
-            <span className='dialog-info-value'>{regulation.commentEndDate ? regulation.commentEndDate : ''}</span>
-          </div>)
-        : ''}
-        <div className='dialog-info'>
-          <span className='dialog-info-label'>Open for comment: </span>
-          <span className='dialog-info-value'>{regulation.openForComment ? 'Yes' : 'No'}</span>
-        </div>
-        <div className='dialog-info'>
-          <span className='dialog-info-label'>Agency: </span>
-          <span className='dialog-info-value'>{regulation.agency}</span>
-        </div>
-        <div className='dialog-info'>
-          <span className='dialog-info-label'>Total comments: </span>
-          <span className='dialog-info-value'>{regulation.numberOfComments}</span>
-        </div>
-      </div>
-      <div className='dialog-main'>
-        <div className='dialog-abstract'>
-          <h3 className='dialog-info-label'>Summary</h3>
-          <div dangerouslySetInnerHTML={{__html: regulation.docketAbstract}}></div>
-          <div className='dialog-button-container'>
-            <RaisedButton
-              primary={true}
-              label='Comment'
-              target='_blank'
-              fullWidth={true}
-              disabled={!regulation.openForComment}
-              href={`https://www.regulations.gov/comment?D=${regulation.docketId}`} />
-          </div>
-        </div>
-        {
-          comments && regulation.sentiment
-            ? <div className='dialog-chart-main'>
-                <SentimentChart positive={regulation.sentiment.positive} negative={regulation.sentiment.negative} neutral={regulation.numberOfComments - regulation.sentiment.positive - regulation.sentiment.negative}/>
-              </div>
-            : ''
+    handleSelectSentiment(selection) {
+        let value = selection[0].row
+        let currentSentiment = this.state.currentSentiment
+
+        switch (true) {
+            case (value === 0):
+                currentSentiment = 'negative'
+                break
+
+            case (value === 1):
+                currentSentiment = 'positive'
+                break
+
+            case (value === 2):
+                currentSentiment = 'neutral'
+                break
         }
-      </div>
-    </div>
-    <h3 className='dialog-info-label comment-title'>Comments</h3>
-    <div className='dialog-comments'>
-      {
-        comments.map(comment => {
-          if (comment.commentText) {
-            return <DialogComment comment={comment} />
-          }
+
+        return this.setState({
+            currentSentiment,
         })
-      }
-      </div>
-  </Dialog>
-)
+    }
+
+    render() {
+        const comments = filterCommentsBySentiment(this.props.comments, this.state.currentSentiment)
+
+        const {
+            app,
+            regulation,
+            toggleDialog,
+        } = this.props
+
+        return (
+            <Dialog
+                autoScrollBodyContent={true}
+                modal={false}
+                open={app.modal.open}
+                contentStyle={dialogStyles}>
+                <CardTitle title={<Title regulation={regulation} toggleDialog={toggleDialog} />} subtitle={regulation.category} />
+                <div className='dialog-content'>
+                  <div className='dialog-info-container'>
+                    <div className='dialog-info'>
+                      <span className='dialog-info-label'>Status: </span>
+                      <span className='dialog-info-value'>{regulation.is_open ? 'Open' : 'Closed'}</span>
+                    </div>
+                    {regulation.commentStartDate
+                    ? (<div className='dialog-info'>
+                        <span className='dialog-info-label'>Posted: </span>
+                        <span className='dialog-info-value'>{regulation.commentStartDate ? regulation.commentStartDate : ''}</span>
+                      </div>)
+                    : ''}
+                    {regulation.commentEndDate
+                    ? (<div className='dialog-info'>
+                        <span className='dialog-info-label'>Comments closed: </span>
+                        <span className='dialog-info-value'>{regulation.commentEndDate ? regulation.commentEndDate : ''}</span>
+                      </div>)
+                    : ''}
+                    <div className='dialog-info'>
+                      <span className='dialog-info-label'>Open for comment: </span>
+                      <span className='dialog-info-value'>{regulation.openForComment ? 'Yes' : 'No'}</span>
+                    </div>
+                    <div className='dialog-info'>
+                      <span className='dialog-info-label'>Agency: </span>
+                      <span className='dialog-info-value'>{regulation.agency}</span>
+                    </div>
+                    <div className='dialog-info'>
+                      <span className='dialog-info-label'>Total comments: </span>
+                      <span className='dialog-info-value'>{regulation.numberOfComments}</span>
+                    </div>
+                  </div>
+                  <div className='dialog-main'>
+                    <div className='dialog-abstract'>
+                      <h3 className='dialog-info-label'>Summary</h3>
+                      <div dangerouslySetInnerHTML={{__html: regulation.docketAbstract}}></div>
+                      <div className='dialog-button-container'>
+                        <RaisedButton
+                          primary={true}
+                          label='Comment'
+                          target='_blank'
+                          fullWidth={true}
+                          disabled={!regulation.openForComment}
+                          href={`https://www.regulations.gov/comment?D=${regulation.docketId}`} />
+                      </div>
+                    </div>
+                    {
+                      comments && regulation.sentiment
+                        ? <div className='dialog-chart-main'>
+                            <SentimentChart onChartSelect={::this.handleSelectSentiment} positive={regulation.sentiment.positive} negative={regulation.sentiment.negative} neutral={regulation.numberOfComments - regulation.sentiment.positive - regulation.sentiment.negative}/>
+                          </div>
+                        : ''
+                    }
+                  </div>
+                </div>
+                <h3 className='dialog-info-label comment-title'>Comments</h3>
+                <div className='dialog-comments'>
+                  {
+                    comments.map(comment => {
+                      if (comment.commentText) {
+                        return <DialogComment comment={comment} />
+                      }
+                    })
+                  }
+              </div>
+          </Dialog>
+        )
+    }
+}
 
 const mapStateToProps = ({regulation, app, comments}) => ({
   regulation,
